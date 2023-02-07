@@ -2,6 +2,7 @@ import pandas as pd
 from fpdf import FPDF
 import glob
 from pathlib import Path
+import datetime
 
 filepaths = glob.glob('sales/*.xlsx')
 for filepath in filepaths:
@@ -37,9 +38,33 @@ for filepath in filepaths:
         pdf.set_font(family='Times', size=12)
         pdf.cell(w=80, h=8, txt=str(row['product_name']), border=1)
         pdf.cell(w=25, h=8, txt=str(row['product_id']), border=1)
-        pdf.cell(w=20, h=8, txt=str(row['amount_purchased']), border=1)
-        pdf.cell(w=30, h=8, txt=str(row['price_per_unit']), border=1)
-        pdf.cell(w=25, h=8, txt=str(row['total_price']), border=1, ln=1)
+        pdf.cell(w=20, h=8, txt=str(row['amount_purchased']),
+                 border=1, align='R')
+        pdf.cell(w=30, h=8, txt=str(row['price_per_unit']),
+                 border=1, align='R')
+        pdf.cell(w=25, h=8, txt=str(row['total_price']), border=1,
+                 ln=1, align='R')
+
+    # add grand total row to invoice
+    total_price = file['total_price'].sum()
+    pdf.set_x(135)
+    pdf.set_font(family='Times', size=12, style='B')
+    pdf.cell(w=30, h=8, txt='Grand Total:', border=1)
+    pdf.cell(w=25, h=8, txt=f'${total_price}', border=1, align='R', ln=1)
+    pdf.cell(w=0, h=20, txt='', border=0, ln=1)
+
+    # Invoice closing
+    pdf.set_font(family='Times', size=12)
+    pdf.cell(w=0, h=12, txt='Thank you for shopping with us!', ln=1)
+    pdf.cell(w=70, h=12,
+             txt=f'The total price for your order is: ${total_price}.', ln=0)
+    pdf.cell(w=0, h=12,
+             txt='Please provide your remittance as soon as possible', ln=1)
+    pdf.cell(w=0, h=12,
+             txt=f'Please contact us if you need any further assistance', ln=1)
+    pdf.cell(w=0, h=20, txt='', border=0, ln=1)
+    pdf.cell(w=0, h=12, txt=f'-The <YourBusiness> Team', ln=1)
+    pdf.image('images/example logo.png', w=50)
 
     # save file
     pdf.output(f'invoices/{filename}.pdf')

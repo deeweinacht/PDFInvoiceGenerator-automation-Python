@@ -29,6 +29,6 @@ folder with the same file names as the sales Excel documents.
     
 
 Dependencies:  
--pandas 1.4.3 licensed with BSD 3-Clause
--openpyxl 3.1.0 licensed with MIT/Expat
--pyfpdf 1.7.2 licensed with LGPL-3.0
+- pandas 1.4.3 licensed with BSD 3-Clause
+- openpyxl 3.1.0 licensed with MIT/Expat
+- pyfpdf 1.7.2 licensed with LGPL-3.0

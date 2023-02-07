@@ -18,7 +18,8 @@ This application generates formatted PDF invoices from Excel documents.
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-Using the app:
+**Using the app:**  
+
 Insert the Excel documents you wish to generate invoices from into the 
 'sales' folder. They should be in the same format as the example Excel documents
 with the following column names: 'product_id', 'product_name', 'amount_purchased',
@@ -28,7 +29,7 @@ in the 'sales' folder. The generated PDFs will be saved in the 'invoices'
 folder with the same file names as the sales Excel documents.
     
 
-Dependencies:  
+**Dependencies:**
 - pandas 1.4.3 licensed with BSD 3-Clause
 - openpyxl 3.1.0 licensed with MIT/Expat
 - pyfpdf 1.7.2 licensed with LGPL-3.0

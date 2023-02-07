@@ -1,10 +1,15 @@
+"""
+This application generates formatted PDF invoices from Excel documents.
+Copyright (c) 2023 Dee Weinacht
+"""
+
 import pandas as pd
 from fpdf import FPDF
 import glob
 from pathlib import Path
-import datetime
 
 filepaths = glob.glob('sales/*.xlsx')
+
 for filepath in filepaths:
     file = pd.read_excel(filepath, sheet_name='Sheet 1')
     filename = Path(filepath).stem

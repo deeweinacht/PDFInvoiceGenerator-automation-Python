@@ -19,7 +19,13 @@ This application generates formatted PDF invoices from Excel documents.
 
 
 Using the app:
-
+Insert the Excel documents you wish to generate invoices from into the 
+'sales' folder. They should be in the same format as the example Excel documents
+with the following column names: 'product_id', 'product_name', 'amount_purchased',
+'price_per_unit', 'total_price'.
+Run the script and a PDF invoice will be generated for each Excel document
+in the 'sales' folder. The generated PDFs will be saved in the 'invoices'
+folder with the same file names as the sales Excel documents.
     
 
 Dependencies:  

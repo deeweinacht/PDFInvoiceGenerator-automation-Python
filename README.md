@@ -1,4 +1,4 @@
-# PDFInvoiceGenerator-utility-Python
+# PDFInvoiceGenerator-automation-Python
 
 This application generates formatted PDF invoices from Excel documents.
 
@@ -23,4 +23,6 @@ Using the app:
     
 
 Dependencies:  
-    
+    pandas 1.4.3 licensed with BSD 3-Clause
+    openpyxl 3.1.0 licensed with MIT/Expat
+    pyfpdf 1.7.2 licensed with LGPL-3.0
